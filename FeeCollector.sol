@@ -1,14 +1,14 @@
-pragma solidity ^0.8.7; //specify version
+pragma solidity ^0.8.7; // version
 // SPDX-License-Identifier: MIT
 
 contract FeeCollector {
-    address public owner; // 
-    uint256 public balance;
+    address public owner; // address of the owner
+    uint256 public balance; // the amount of money in the owners account
     constructor () {
         owner = msg.sender; // owner is the deployer of the contract
 
     }
-    receive() payable external {
+    receive() payable external { //called when someone sends money to the contract
         balance += msg.value; //balance is increased by msg.value whenever someone sends money to the contract
     }
 
